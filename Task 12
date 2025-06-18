@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Task 12 - User Info Alert</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 50px;
+      text-align: center;
+    }
+    input {
+      padding: 10px;
+      font-size: 16px;
+      margin: 10px;
+      width: 200px;
+    }
+    button {
+      padding: 10px 25px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Enter your details</h2>
+  <input type="text" id="name" placeholder="Enter your name" title="Name" />
+  <br />
+  <input type="number" id="age" placeholder="Enter your age" title="Age" />
+  <br />
+  <button onclick="submitInfo()">Submit</button>
+
+  <script>
+    function submitInfo() {
+      const name = document.getElementById("name").value;
+      const age = document.getElementById("age").value;
+      const timestamp = new Date().toISOString(); // ISO format time
+
+      const user = {
+        name,
+        age,
+        timestamp
+      };
+
+      // Use object destructuring
+      const { name: userName, age: userAge, timestamp: userTime } = user;
+
+      alert(
+        `Your name is: ${userName}\nYour age is: ${userAge}\nTimestamp: ${userTime}`
+      );
+    }
+  </script>
+
+</body>
+</html>
